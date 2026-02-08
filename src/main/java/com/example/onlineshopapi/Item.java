@@ -3,38 +3,34 @@ package com.example.onlineshopapi;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "shop_item")
+@Table(name = "items")
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "item_id")
-    private Integer itemId;
+    private Integer id;
 
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "price")
     private Double price;
-
-    @Column(name = "quantity")
     private Integer quantity;
 
     public Item() {}
 
-    public Integer getItemId() {
-        return itemId;
+    public Item(String name, Double price, Integer quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
     }
 
-    public String getName() {
-        return name;
-    }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
-    public Double getPrice() {
-        return price;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+    public Double getPrice() { return price; }
+    public void setPrice(Double price) { this.price = price; }
+
+    public Integer getQuantity() { return quantity; }
+    public void setQuantity(Integer quantity) { this.quantity = quantity; }
 }
